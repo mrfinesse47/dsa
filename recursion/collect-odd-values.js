@@ -11,7 +11,7 @@ function collectOddValues(arr) {
   }
 
   //console.log("function result:", collectOddValues(arr.slice(1)));
-  //console.log(newArr);
+  //consocle.log(newArr);
   newArr = newArr.concat(collectOddValues(arr.slice(1)));
   //console.log("function begins returning");
   //console.log("arr:", arr);
