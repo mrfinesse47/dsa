@@ -11,6 +11,14 @@ function factorial(x) {
 
 console.log("res:", factorial(9));
 
-//base case is 1
-//fist res is 1 and x is 2 so next res is 2
-// then x is 3*2 as it counts back up to 5
+//x is going to do its thing and is just based on the input, the result varies
+// base case: 1
+// res: 1  x: 2
+// res: 2  x: 3
+// res: 6  x: 4
+// res: 24  x: 5
+// res: 120  x: 6
+// res: 720  x: 7
+// res: 5040  x: 8
+// res: 40320  x: 9
+// res: 362880
