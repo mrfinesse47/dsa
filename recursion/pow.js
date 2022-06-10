@@ -3,10 +3,10 @@ function power(base, exp) {
     console.log("base case");
     return 1;
   }
-  console.log("exp:", exp);
+  //   console.log("exp:", exp);
   const res = base * power(base, exp - 1);
-  console.log("res:", res);
-  console.log("exp:", exp);
+  //   console.log("res:", res);
+  //   console.log("exp:", exp);
   return res;
 }
 
