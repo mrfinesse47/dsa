@@ -13,13 +13,13 @@ const binarySearch = (arr, num, startIndex = 0, endIndex = arr.length - 1) => {
     return startIndex;
   } else if (num === arr[endIndex]) {
     return endIndex;
+  } else if (halfWayIndex === startIndex || halfWayIndex === endIndex) {
+    return -1;
   } else if (num > halfWaynum) {
     return binarySearch(arr, num, (startIndex = halfWayIndex), endIndex);
-  } else if (num < halfWaynum) {
-    return binarySearch(arr, num, startIndex, (endIndex = halfWayIndex));
   } else {
-    return -1;
+    return binarySearch(arr, num, startIndex, (endIndex = halfWayIndex));
   }
 };
 
-console.log(binarySearch(input, -1));
+console.log(binarySearch(input, 333));
