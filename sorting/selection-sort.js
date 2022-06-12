@@ -1,28 +1,31 @@
-const bubbleSort = (arr) => {
-  let iterations = 0;
-  const swap = (arr, idx1, idx2) => {
-    const temp = arr[idx1];
-    arr[idx1] = arr[idx2];
-    arr[idx2] = temp;
-    return arr;
-  };
-  for (let i = 0; i < arr.length - 1; i++) {
-    //my own thing at this point but it works decent
-    if (arr[i] > arr[i + 1]) {
-      arr = swap(arr, i, i + 1);
-      i -= 2;
-      if (i < -1) {
-        i = 0;
-      }
-    }
-    iterations++;
-  }
-  console.log(iterations);
+const swap = (arr, idx1, idx2) => {
+  const temp = arr[idx1];
+  arr[idx1] = arr[idx2];
+  arr[idx2] = temp;
   return arr;
 };
 
+function selectionSort(arr) {
+  let iterations = 0;
+  for (let i = 0; i < arr.length; i++) {
+    iterations++;
+    let min = arr[i];
+    let minIdx = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      iterations++;
+      if (min > arr[j]) {
+        min = arr[j];
+        minIdx = j;
+      }
+    }
+    if (i !== minIdx) swap(arr, i, minIdx);
+  }
+  console.log("iterations", iterations);
+  return arr;
+}
+
 console.log(
-  bubbleSort([
+  selectionSort([
     37, 71, 96, 53, 31, 13, 56, 33, 81, 8, 24, 98, 12, 73, 34, 89, 71, 47, 16,
     18, 97, 77, 12, 17, 46, 43, 76, 99, 96, 67, 20, 40, 18, 1, 92, 32, 9, 21, 5,
     38, 41, 36, 19, 87, 2, 62, 70, 38, 86, 7, 43, 24, 100, 10, 100, 15, 9, 54,

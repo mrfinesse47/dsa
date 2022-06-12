@@ -10,12 +10,12 @@ function collectOddValues(arr) {
     newArr.push(arr[0]);
   }
 
-  //console.log("function result:", collectOddValues(arr.slice(1)));
-  //consocle.log(newArr);
+  //   console.log("function result:", collectOddValues(arr.slice(1)));
+  //   console.log(newArr);
   newArr = newArr.concat(collectOddValues(arr.slice(1)));
-  //console.log("function begins returning");
-  //console.log("arr:", arr);
-  //console.log("newArr:", newArr);
+  console.log("function begins returning");
+  console.log("arr:", arr);
+  console.log("newArr:", newArr);
   return newArr;
 }
 
