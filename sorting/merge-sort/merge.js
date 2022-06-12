@@ -27,5 +27,3 @@ module.exports = merge = (arr1, arr2) => {
   }
   return res;
 };
-
-console.log(merge([1, 3, 10, 50], [1, 2, 14, 45, 100, 999]));
