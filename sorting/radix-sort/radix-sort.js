@@ -17,12 +17,9 @@ function radixSort([...arr]) {
       }
       bucketsArr[currentDigit].push(arr[j]);
     }
-    arr = [];
-    bucketsArr.forEach((bucket) => {
-      if (bucket.length > 0) {
-        arr = arr.concat(bucket);
-      }
-    });
+
+    arr = [].concat(...bucketsArr); //very nice
+    // or , arr = bucketsArr.flat();
   }
   return arr;
 }
