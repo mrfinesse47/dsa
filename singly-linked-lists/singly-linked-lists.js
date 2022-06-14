@@ -14,7 +14,7 @@ class SinglyLinkedList {
     this.tail = null;
     this.length = 0;
   }
-  //my push solution attempt
+
   push(val) {
     const newNode = new Node(val);
     if (this.head === null) {
@@ -25,6 +25,27 @@ class SinglyLinkedList {
       this.tail = newNode;
     }
     this.length++;
+  }
+  //my pop attempt
+  pop() {
+    if (this.length === 1) {
+      const last = this.head;
+      this.head = null;
+      this.tail = null;
+      this.length--;
+      return last;
+    }
+    if (this.length > 1) {
+      let prev = this.head;
+      for (let i = 2; i < this.length; i++) {
+        prev = prev.next;
+      }
+      const last = prev.next;
+      prev.next = null;
+      this.tail = prev;
+      this.length--;
+      return last;
+    }
   }
 }
 
@@ -41,8 +62,14 @@ list.push("how");
 list.push("are");
 list.push("you");
 
-console.log("1", list.head);
-console.log("2", list.head.next);
-console.log("3", list.head.next.next);
-console.log("4", list.head.next.next.next);
-console.log("5", list.head.next.next.next.next);
+// console.log("1", list.head);
+// console.log("2", list.head.next);
+// console.log("3", list.head.next.next);
+// console.log("4", list.head.next.next.next);
+// console.log("5", list.head.next.next.next.next);
+
+console.log(list.pop());
+console.log(list.pop());
+console.log(list.pop());
+console.log(list.pop());
+console.log(list.pop());
