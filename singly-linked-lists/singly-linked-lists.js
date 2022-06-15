@@ -72,6 +72,20 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
+  get(index) {
+    if (index > this.length || index < 0) {
+      return null;
+    }
+    let node = this.head;
+    if (index === 0) {
+      return node;
+    }
+
+    for (let i = 1; i <= index; i++) {
+      node = node.next;
+    }
+    return node;
+  }
 }
 
 // var first = new Node("Hi");
@@ -83,9 +97,9 @@ class SinglyLinkedList {
 const list = new SinglyLinkedList();
 list.push("hello");
 list.push("there");
-// list.push("how");
-// list.push("are");
-// list.push("you");
+list.push("how");
+list.push("are");
+list.push("you");
 
 // console.log("1", list.head);
 // console.log("2", list.head.next);
@@ -93,5 +107,7 @@ list.push("there");
 // console.log("4", list.head.next.next.next);
 // console.log("5", list.head.next.next.next.next);
 
-console.log(list.unshift("Rex"));
-console.log(list);
+//console.log(list.push("Rex"));
+// console.log(list);
+// console.log(list.next);
+console.log("get:", list.get(4));
