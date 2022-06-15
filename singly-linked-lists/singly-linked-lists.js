@@ -80,11 +80,18 @@ class SinglyLinkedList {
     if (index === 0) {
       return node;
     }
-
     for (let i = 1; i <= index; i++) {
       node = node.next;
     }
     return node;
+  }
+  set(index, value) {
+    let node = this.get(index);
+    if (!node) {
+      return false;
+    }
+    node.val = value;
+    return true;
   }
 }
 
@@ -110,4 +117,8 @@ list.push("you");
 //console.log(list.push("Rex"));
 // console.log(list);
 // console.log(list.next);
-console.log("get:", list.get(4));
+list.unshift("Rex");
+console.log("get:", list.get(1));
+list.set(1, "mason");
+console.log(list);
+console.log(list.get(4));
