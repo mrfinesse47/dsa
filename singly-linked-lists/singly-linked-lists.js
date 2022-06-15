@@ -49,12 +49,28 @@ class SinglyLinkedList {
   }
 
   shift() {
-    if (this.length > 1) {
+    if (this.length >= 1) {
       const shiftedHead = this.head;
       this.head = this.head.next;
       this.length--;
+      if (this.length === 0) {
+        this.tail = null;
+      }
       return shiftedHead;
     }
+  }
+
+  unshift(val) {
+    const node = new Node(val);
+
+    if (this.length === 0) {
+      this.tail = node;
+    } else {
+      node.next = this.head;
+    }
+    this.head = node;
+    this.length++;
+    return this;
   }
 }
 
@@ -67,9 +83,9 @@ class SinglyLinkedList {
 const list = new SinglyLinkedList();
 list.push("hello");
 list.push("there");
-list.push("how");
-list.push("are");
-list.push("you");
+// list.push("how");
+// list.push("are");
+// list.push("you");
 
 // console.log("1", list.head);
 // console.log("2", list.head.next);
@@ -77,8 +93,5 @@ list.push("you");
 // console.log("4", list.head.next.next.next);
 // console.log("5", list.head.next.next.next.next);
 
-console.log(list.pop());
-console.log(list.pop());
-console.log(list.pop());
-console.log(list.pop());
-console.log(list.pop());
+console.log(list.unshift("Rex"));
+console.log(list);
