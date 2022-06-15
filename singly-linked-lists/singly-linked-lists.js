@@ -93,6 +93,34 @@ class SinglyLinkedList {
     node.val = value;
     return true;
   }
+  insert(index, value) {
+    if (index < 0 || index > this.length) {
+      return false;
+    }
+    if (index === this.length - 1) {
+      console.log("push at end");
+      return this.push(value) ? true : false;
+    }
+    if (index === 0) {
+      return this.unshift(value) ? true : false;
+    }
+    const prevNode = this.get(index - 1);
+    const newNode = new Node(value);
+    const oldNext = prevNode.next;
+    prevNode.next = newNode;
+    newNode.next = oldNext;
+    return true;
+  }
+  printAllVal() {
+    let node = this.head;
+    let index = 0;
+    while (node.next) {
+      console.log(`${index}:`, node.val);
+      node = node.next;
+      index++;
+    }
+    console.log(`${index}:`, node.val);
+  }
 }
 
 // var first = new Node("Hi");
@@ -116,9 +144,17 @@ list.push("you");
 
 //console.log(list.push("Rex"));
 // console.log(list);
-// console.log(list.next);
-list.unshift("Rex");
-console.log("get:", list.get(1));
-list.set(1, "mason");
-console.log(list);
-console.log(list.get(4));
+// // console.log(list.next);
+// list.unshift("Rex");
+
+// list.set(1, "mason");
+// console.log(list.insert(4, "Rex"));
+
+// console.log("0", list.head);
+// console.log("1", list.head.next);
+// console.log("2", list.head.next.next);
+// console.log("3", list.head.next.next.next);
+// console.log("4", list.head.next.next.next.next);
+// console.log("5", list.head.next.next.next.next.next);
+
+list.printAllVal();
