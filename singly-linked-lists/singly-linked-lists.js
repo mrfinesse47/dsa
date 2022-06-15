@@ -47,6 +47,15 @@ class SinglyLinkedList {
       return last;
     }
   }
+
+  shift() {
+    if (this.length > 1) {
+      const shiftedHead = this.head;
+      this.head = this.head.next;
+      this.length--;
+      return shiftedHead;
+    }
+  }
 }
 
 // var first = new Node("Hi");
