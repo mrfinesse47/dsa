@@ -25,6 +25,7 @@ class SinglyLinkedList {
       this.tail = newNode;
     }
     this.length++;
+    return true;
   }
   //my pop attempt
   pop() {
@@ -97,12 +98,11 @@ class SinglyLinkedList {
     if (index < 0 || index > this.length) {
       return false;
     }
-    if (index === this.length - 1) {
-      console.log("push at end");
-      return this.push(value) ? true : false;
+    if (index === this.length) {
+      return !!this.push(value);
     }
     if (index === 0) {
-      return this.unshift(value) ? true : false;
+      return !!this.unshift(value);
     }
     const prevNode = this.get(index - 1);
     const newNode = new Node(value);
@@ -110,6 +110,23 @@ class SinglyLinkedList {
     prevNode.next = newNode;
     newNode.next = oldNext;
     return true;
+  }
+  remove(index) {
+    if (index < 0 || index >= this.length) {
+      return false;
+    }
+    if (index === this.length - 1) {
+      return this.pop();
+    }
+    if (index === 0) {
+      return this.shift();
+    }
+    const prevNode = this.get(index - 1);
+    const removedNode = this.get(index);
+    const nextNode = removedNode.next;
+    prevNode.next = nextNode;
+    this.length--;
+    return removedNode;
   }
   printAllVal() {
     let node = this.head;
@@ -120,6 +137,7 @@ class SinglyLinkedList {
       index++;
     }
     console.log(`${index}:`, node.val);
+    console.log("total length:", this.length);
   }
 }
 
@@ -148,7 +166,8 @@ list.push("you");
 // list.unshift("Rex");
 
 // list.set(1, "mason");
-// console.log(list.insert(4, "Rex"));
+console.log(list.insert(0, "Rex"));
+console.log(list.remove(5));
 
 // console.log("0", list.head);
 // console.log("1", list.head.next);
