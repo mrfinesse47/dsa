@@ -128,6 +128,20 @@ class SinglyLinkedList {
     this.length--;
     return removedNode;
   }
+  reverse() {
+    var node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+    var next;
+    var prev = null;
+    for (var i = 0; i < this.length; i++) {
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
+    return this;
+  }
   printAllVal() {
     let node = this.head;
     let index = 0;
@@ -166,8 +180,6 @@ list.push("you");
 // list.unshift("Rex");
 
 // list.set(1, "mason");
-console.log(list.insert(0, "Rex"));
-console.log(list.remove(5));
 
 // console.log("0", list.head);
 // console.log("1", list.head.next);
@@ -175,5 +187,6 @@ console.log(list.remove(5));
 // console.log("3", list.head.next.next.next);
 // console.log("4", list.head.next.next.next.next);
 // console.log("5", list.head.next.next.next.next.next);
-
+//list.printAllVal();
+list.reverse();
 list.printAllVal();
