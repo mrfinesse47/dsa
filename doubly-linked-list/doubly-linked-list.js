@@ -25,22 +25,23 @@ class DoublyLinkedList {
     this.length++;
     return this;
   }
+  pop() {
+    const prev = this.tail.prev;
+    const oldNode = this.tail;
+    this.tail = prev;
+    prev.next = null;
+    this.length--;
+    return oldNode;
+  }
   printAllVal() {
     let node = this.head;
     let index = 0;
     while (node.next) {
-      console.log(
-        `${index}:`,
-        node.val,
-        "prev:",
-        node.prev,
-        "next:",
-        node.next
-      );
+      console.log(`${index}:`, node.val);
       node = node.next;
       index++;
     }
-    console.log(`${index}:`, node.val, "prev:", node.prev, "next:", node.next);
+    console.log(`${index}:`, node.val);
     console.log("total length:", this.length);
   }
 }
@@ -48,5 +49,8 @@ class DoublyLinkedList {
 const list = new DoublyLinkedList();
 list.push(2);
 list.push(3);
+list.push(4);
+list.push(5);
+console.log(list.pop());
 
 list.printAllVal();
