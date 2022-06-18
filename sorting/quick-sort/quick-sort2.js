@@ -1,3 +1,12 @@
+//i wrote the quick sort portion
+//the worst case is [1]
+
+//worst case is o(n^2) when the array is sorted
+//so [1,2,3,4,5]
+//so 1 is compared to all then 2 is compared to all etc
+//ways around this is to pick a random el to pivot on or half way
+//its no longer quick lol
+
 function quickSort(arr, start = 0, end = arr.length) {
   if (start <= end) {
     return arr;

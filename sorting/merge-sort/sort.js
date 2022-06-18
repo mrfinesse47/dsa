@@ -1,3 +1,5 @@
+//O(n)log(n)//best for data agnostic
+
 function mergeSort(arr) {
   const halfWayIndex = Math.floor(arr.length / 2);
 
@@ -16,7 +18,7 @@ function mergeSort(arr) {
 }
 
 function merge(arr1, arr2) {
-  //orders 2 sorted arrays to one in order
+  //orders 2 SORTED arrays to ONE in order
   const res = [];
   let i = 0;
   let j = 0;

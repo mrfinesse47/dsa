@@ -1,3 +1,5 @@
+//my first approach before knowing common patterns
+//quick sort 2 handles repetition better
 let iterations = 0;
 
 function quickSort(arr) {
